@@ -1,0 +1,179 @@
+body {
+  background-color: #F5F5F5;
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
+  padding: 40px;
+}
+
+.titl {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  margin-bottom: 26px;
+  color: #333333;
+  margin-left: 5%;
+}
+
+.table-titl {
+  width: 90%;
+  margin: 0 auto 40px auto; /* Центрирует саму таблицу по центру экрана, если экран огромный */
+  border-collapse: collapse;
+  background: #f5f5f5; /* Белый фон для всей таблицы */
+}
+
+.info th {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #B0B0B0;
+  text-align: left;
+  padding: 0 20px 8px 20px;
+  vertical-align: bottom;
+}
+
+.info th:hover {
+  color: #333333;
+  cursor: pointer;
+}
+
+.table-row {
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+.table-row td {
+  padding: 10px 20px;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.table-row .id {
+  font-size: 12px;
+  color: #B0B0B0;
+}
+
+.actions {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.btn-edit, .btn-delete {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 19px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.btn-edit:hover {
+  color: #9873FF;
+}
+
+.btn-delete:hover {
+  color: #F06A4D;
+}
+
+.contacts-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  max-width: 120px;
+  min-height: 34px;
+  align-items: center;
+}
+
+.contact-badge {
+  position: relative;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.contact-badge svg {
+  display: block;
+}
+
+.contact-badge .tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background-color: #333333;
+  color: #FFFFFF;
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-badge .tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333333 transparent transparent transparent;
+}
+
+.contact-badge:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.addUser {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  
+  /* Размеры и позиционирование */
+  margin: 0 auto; /* Магия для центровки кнопки по горизонтали */
+  padding: 12px 26px;
+  
+  /* Стили рамки и фона */
+  background-color: transparent;
+  border: 1px solid #9873FF;
+  box-sizing: border-box;
+  
+  /* Шрифты */
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #9873FF;
+  
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Плавный ховер при наведении */
+.addUser:hover {
+  background-color: #9873FF;
+  color: #FFFFFF;
+}
+
+/* Изменяем цвет иконки на белый при ховере */
+.addUser:hover svg path {
+  fill: #FFFFFF;
+}
+
+/* Эффект при клике */
+.addUser:active {
+  background-color: #7C56E4;
+  border-color: #7C56E4;
+}
