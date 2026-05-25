@@ -1,5 +1,6 @@
     import express from 'express';
     import cors from 'cors';
+    import {Client} from '../client.js'
 
     const app = express();
 
@@ -17,6 +18,8 @@
         const clientData = req.body;
         console.log('--- На сервер пришли данные! ---');
         console.log(clientData);
+        Client.push(clientData)
+        main(Client)
 
         res.status(201).json({
             status: "Успешно сохранено",

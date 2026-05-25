@@ -1,5 +1,5 @@
 import { idClient } from '../main';
-
+import {Client} from '../client.ts'
 
 function getAddModalHtml(): string {
   return /*html*/`
@@ -77,8 +77,8 @@ function getFormattedDate(): string {
     return `${day}.${month}.${year} ${hours}:${minutes}`;
 }
 
-function contact(): void {
-    const id = idClient()
+async function contact(): Promise<void> {
+    const id = idClient(Client)
     const nameSurname = (document.getElementById('surname') as HTMLInputElement).value;
     const name = (document.getElementById('name') as HTMLInputElement).value;
     const lastName = (document.getElementById('lastName') as HTMLInputElement).value;
@@ -95,7 +95,25 @@ function contact(): void {
   contacts: [
   ]
     }
-    closeAddModal();
+    try{
+      const response = await fetch('http://localhost:3002/api/clients', {
+      method: 'POST',
+      headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(clientData)
+      });
+
+      const result = await response.json()
+      console.log('Ответ от сервера:', result);
+      
+      closeAddModal();
+    }catch (error) {
+        console.error('Ошибка отправки:', error);
+        alert('Не удалось сохранить клиента на сервере!');
+    }
+
+    
 }
 
 (window as Window & { openAddModal?: () => void }).openAddModal = openAddModal;
